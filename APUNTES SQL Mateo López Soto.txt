@@ -1,0 +1,132 @@
+# 						APUNTES SQL
+
+SQL, lenguaje de consulta estructurada en español, es un lenguaje que nos permite administrar y recuperar información de bases de datos.
+
+
+
+
+
+**Importante**** 
+
+**poner ; al final**
+
+**Se utiliza ' no "**
+
+
+
+
+
+​	SELECT- Se usa para indicar los atributos que queremos mostrar
+
+​	FROM- Se señala la tabla de la que vamos a obtener los datos
+
+​	WHERE- Sirve para escribir las condiciones con las que intentaremos adquirir los datos que necesitamos
+
+
+
+Diferencia entre = y LIKE: = coge los datos que literalmente ponemos entre comillas, de modo que si ponemos un % (para señalar que la frase puede tener palabras detrás o delante) saldrán los datos que tengan el símbolo del porcentaje como tal, y LIKE si permitiría que aparezcan los datos que contengan la frase que queremos y el % obtiene su uso principal. Cabe destacar que para indicar diferente que tenemos <>
+
+
+
+Función IN- Permite saber si un elemento está en la base de datos. Por ejemplo, en una base de datos de jugadores de baloncesto, la condición WHERE name IN ('Lebron James') nos permitirá lograr conseguir los datos que hayamos colocado en el SELECT referentes a Lebron
+
+
+
+Between- Como su nombre indica, lo utilizamos para ajustar el dato entre dos valores
+
+BETWEEN ** AND **
+
+Sin usar between, podemos hacer > ** AND < **
+
+
+
+LIKE- Como he mencionado anteriormente, LIKE sirve para buscar diferentes patrones sin tener que buscar exactamente las palabras o grupos de palabras enteros. Para esto podemos usar %, que simboliza letras o _, que simboliza que sólo hay un espacio o una letra.
+
+'%land' significa que busca todos los elementos que tengan land aunque tenga letras detrás 
+
+'_land' solo mostrará los elementos que tengan land y solo una letra o un espacio detrás
+
+Otra opción útil es el uso del concat, que nos permite añadir varias condiciones que usen el % o _ a la vez, en vez de realizar diferentes condiciones
+
+
+
+REPLACE- Se emplea para sustituir un nombre de un atributo en el SELECT con el nombre que tú le quieras dar. REPLACE (**) AS '^^' . En el SELECT también podemos dividir o multiplicar por otros números o entre atributos y usaremos el AS para cambiar el nombre y que no salga en la tabla la operación matemática
+
+
+
+Tal y como pasa con las puertas lógicas, podemos aprovechar diversos operadores en las condiciones situadas en el WHERE. La AND vale para que tenga que cumplir todas la condiciones, la OR sólo aprueba que tenga una condición o la otra. Además, existe una especial, la XOR, que muestra los datos que cumplen una de las dos condiciones pero no las que cumplen las dos
+
+
+
+ROUND- Se utiliza también en el WHERE para redondear una operación matemática de la forma 
+
+ROUND (2473047/2380, 2), redondeando así a dos decimales
+
+
+
+LENGTH- Como su propio nombre indica, con él podremos establecer la condición a través de su longitud
+
+
+
+LEFT- Para elegir datos en una condición en los que queramos elegir que dos atributos tienen una letra en el mismo sitio se utiliza LEFT. Si queremos la primera letra será LEFT(nombre del atributo, 1)
+
+
+
+*** Si queremos enseñar todos los atributos, en vez de enumerarlos podemos colocar un asterisco
+
+
+
+ORDER BY- Sirve para ordenar, por defecto aparece por orden ascendente. No hace falta saber esto, ya que si quieres ordenar de manera ascendente puedes colocar ASC y de mandera descendente DESC
+
+
+
+GROUP BY- Sirve para agrupar, por ejemplo si queremos saber la poblacion de un continente tendremos que usar el GROUP BY para que solo salgan los continentes
+
+
+
+Otra forma de pedir condiciones es utilizar un SELECT dentro de otro SELECT. Si en el SELECT de dentro tenemos que utilizar en una condición un dato del otro select podemos renombrar los nombres de la base de datos para no confundirnos. 
+
+FROM world AS x, y dentro del SELECT FROM world AS y, colocando el nombre que le hemos dado seguido de un punto y del atributo.
+
+
+
+DIFERENCIA ENTRE SUM Y COUNT- SUM suma todos los datos que entren dentro de la condición y COUNT cuenta el número de datos que cumplen la condición. Si queremos una de estas dos funciones para definir una condición no podremos usar WHERE, si no HAVING
+
+
+
+JOIN- Si queremos juntar dos tablas tenemos esta función de la forma nombredelatabla JOIN nombredelatabla2 ON claveprincipaltabla1 = claveprincipaltabla2
+
+Para saber qué atributo es el que necesitamos debemos fijarnos cuáles son los datos que se repiten en cada tabla 
+
+
+
+Si queremos utilizar NULL no podemos usar = o <>, si no IS o IS NOT null
+
+Si deseamos juntar dos tablas que tengan elementos nulos no podremos usar JOIN pero sí variaciones del.
+
+
+
+INNER JOIN- No muestra los atributos que tengan nulos
+
+LEFT JOIN- Muestra los todos los atributos situados como primeros en el SELECT (es decir, que están en la izquierda) aunque en el atributo de la derecha haya nulos
+
+RIGHT JOIN- Lo mismo que el LEFT JOIN pero saldrían todos los atributos de la derecha  aunque en la izquierda haya nulos
+
+Como es obvio, con un LEFT JOIN puedes realizar la función de un RIGHT JOIN y viceversa simplemente cambiando el orden de los atributos en el SELECT
+
+
+
+COALESCE- Va en el SELECT y nos permite sustituir los nulos por el String que queramos de la forma COALESCE (atributo, 'String'), saldría por pantalla en los nulos String
+
+
+
+CASE WHEN- Funciona de una manera similar a un IF en Java. Para abrir y cerrar la función no se usan corchetes, si no CASE para empezar y END para terminar. Situamos el condicionante posterior a un WHEN y para indicar lo que haremos en el resto de los casos escribiremos la condición después de un ELSE
+
+
+
+​																																		Mateo López Soto
+
+​																																		DAM1
+
+
+
